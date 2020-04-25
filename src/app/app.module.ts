@@ -7,6 +7,12 @@ import { DocumentComponent } from './document/document.component';
 import { HomeComponent } from './home/home.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+import { AngularFireModule } from '@angular/fire';
+import { AngularFireStorageModule } from '@angular/fire/storage';
+import { environment } from '../environments/environment';
+import { FirebaseStorageService } from '../app/firebase-storage.service'
+import { NgxUiLoaderModule } from 'ngx-ui-loader';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -17,9 +23,12 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    MatTableModule
+    MatTableModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireStorageModule,
+    NgxUiLoaderModule
   ],
-  providers: [],
+  providers: [FirebaseStorageService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

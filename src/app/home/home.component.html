@@ -1,3 +1,26 @@
 <div class="container">
-
+  <h1>Firma tus Documentos</h1>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Name</th>
+        <th scope="col">Info</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let doc of documents | async">
+        <th> {{doc.id}}</th>
+        <td>{{doc.data.nombre}}</td>
+        <span *ngIf="doc.data.firma">
+          <td>
+            <a [attr.href]="doc.pdfUrl | async" target="_blank">Blob</a>
+          </td>
+        </span>
+        <span *ngIf="!doc.data.firma">
+          <td [routerLink]="['/document',doc.id]">Firmar</td>
+        </span>
+      </tr>
+    </tbody>
+  </table>
 </div>

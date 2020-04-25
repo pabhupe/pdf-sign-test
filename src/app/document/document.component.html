@@ -1,3 +1,46 @@
-<p>
-  document works!
-</p>
+<div id="document" class="container">
+
+  <div class="row">
+    <div class="col-10">
+      <h1>{{doc.nombre}}</h1>
+    </div>
+    <div class="col-2">
+      <p><strong>
+          {{number}}
+        </strong></p>
+    </div>
+  </div>
+  <div class="row body">
+    <div class="col-12">
+      <h3>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis id lorem enim. Aenean rhoncus interdum maximus.
+        Vestibulum
+        at odio malesuada, fermentum mauris non, aliquam lacus. Phasellus at gravida eros, et convallis turpis. Aenean
+        pharetra
+        magna in bibendum ultricies. Vestibulum enim odio, eleifend eget lorem dapibus, vulputate dictum tortor. Mauris
+        euismod
+        felis eget lacus rutrum, eu dignissim lacus consectetur. Donec lacinia sem quis tincidunt congue. Nam at
+        pulvinar lorem,
+        nec blandit nibh. Nullam semper purus ut mi aliquet tincidunt. Maecenas non leo eu mauris volutpat imperdiet id
+        eu leo.
+        Nunc ac dolor purus. Aliquam et bibendum libero, eu dignissim eros.</h3>
+    </div>
+  </div>
+  <div class="row bottom">
+    <div *ngIf="doc.firma" class="col-12 text-center">
+      {{doc.firma}}
+    </div>
+    <div class="col-12 text-center">
+
+      ________________________
+    </div>
+    <br>
+    <br>
+    <div class="col-12 text-center">
+      <button *ngIf="!doc.firma" (click)="sign()" type="button" class="btn btn-primary">
+        Sign
+      </button>
+    </div>
+  </div>
+
+
+</div>
